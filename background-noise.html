@@ -1,0 +1,66 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Background Noise</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link href="https://bootswatch.com/cosmo/bootstrap.min.css" rel="stylesheet">
+        <style>
+            html {background-color: #222;}
+            body {background-color: transparent;}
+            * {font-family: Roboto, sans-serif; color: rgba(255,255,255,0.75);}
+            .btn:focus {outline: none;}
+        </style>
+    </head>
+    <body>
+        <button class="btn btn-default noise-btn" onclick="javascript:noise.toggle();"><span class="glyphicon glyphicon-play"></span> Start</button>
+        <script>
+            var noise = {
+                context: new (window.AudioContext || window.webkitAudioContext)(),
+                playing: false,
+                btn: document.querySelector('.noise-btn'),
+                vol: null,
+                osc: null,
+                init: function() {
+                    this.vol = this.context.createGain(),
+                    this.osc = this.context.createOscillator(),
+
+                    this.vol.gain.value = 0;
+
+                    this.osc.type = 'sine';
+                    this.osc.frequency.value = 20;
+                    this.osc.connect(this.vol);
+
+                    this.vol.connect(this.context.destination);
+
+                    this.osc.start();
+                },
+                play: function() {
+                    this.vol.gain.value = 0.001;
+                    this.btn.innerHTML = '<span class="glyphicon glyphicon-stop" aria-hidden="true"></span> Stop';
+                    this.playing = true;
+                },
+                stop: function() {
+                    this.vol.gain.value = 0;
+                    this.btn.innerHTML = '<span class="glyphicon glyphicon-play" aria-hidden="true"></span> Start';
+                    this.playing = false;
+                },
+                toggle: function() {
+                    if (this.playing == false) {
+                        this.play();
+                    } else {
+                        this.stop();
+                    }
+                }
+            }
+            noise.init()
+
+            var hash = window.location.hash.substr(1);
+            if (hash.indexOf("noise") !== -1) {
+                noise.play();
+            }
+        </script>
+    </body>
+</html>
