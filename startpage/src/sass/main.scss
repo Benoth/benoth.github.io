@@ -38,11 +38,17 @@
 // @import "node_modules/bootstrap/scss/utilities";
 // @import "node_modules/bootstrap/scss/print";
 
-
-
-
 * {
-  text-align: center;
+  transition: all 0.1s ease-out;
+}
+
+body {
+  font-size: 13px;
+}
+
+a, a:active, a:hover, a:visited,
+.btn-link, .btn-link:active, .btn-link:hover, .btn-link:visited {
+  text-decoration: none;
 }
 
 .link-icon {
@@ -63,5 +69,25 @@
 }
 
 .main-line {
-  margin-top: 40px;
+  margin: 40px 0;
+  text-align: center;
+}
+
+.links-list {
+  margin-top: 100vh;
+  dl {
+    padding: 0 60px 0 80px;
+  }
+  dt {
+    padding: 1px 5px;
+  }
+  a, a:active, a:hover, a:visited {
+    display: block;
+    font-weight: 300;
+  }
+  .title {
+    margin-top: 15px;
+    padding: 5px;
+    background-color: $blue;
+  }
 }

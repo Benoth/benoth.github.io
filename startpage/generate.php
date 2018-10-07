@@ -12,7 +12,7 @@ class Link
 
     public function renderButtons()
     {
-        $html = '<a class="btn btn-link link-icon '.$this->slugifyName().'" target="_blank" href="'.$this->link.'" accesskey="'.$this->accessKey.'">';
+        $html = '<a class="btn btn-link link-icon '.$this->slugifyName().'" href="'.$this->link.'" accesskey="'.$this->accessKey.'">';
         if (!empty($this->icon)) {
             $html .= $this->icon;
         } else {
@@ -47,10 +47,10 @@ $mainLine = [
     new Link('Facebook',    'https://www.facebook.com/',     'f', '<i class="fab fa-facebook"></i>'),
     new Link('Twitter',     'https://twitter.com/',          'w', '<i class="fab fa-twitter"></i>'),
     new Link('Hubic',       'https://hubic.com/fr/',         'h', '<i class="fas fa-file-alt"></i>'),
-    new Link('GistNote',    'https://gistnote.github.io/',   'g', '<i class="fas fa-sticky-note"></i>'),
+    new Link('GistNote',    'https://gistnote.github.io/',   'n', '<i class="fas fa-sticky-note"></i>'),
     new Link('KeeWeb',      'https://app.keeweb.info/',      'k', '<i class="fas fa-key"></i>'),
     new Link('YouTube',     'https://www.youtube.com/',      'y', '<i class="fab fa-youtube"></i>'),
-    new Link('Twitch',      'https://www.twitch.tv/',        'i', '<i class="fab fa-twitch"></i>'),
+    new Link('Twitch',      'https://www.twitch.tv/',        'v', '<i class="fab fa-twitch"></i>'),
     new Link('Netflix',     'https://www.netflix.com/',      'n', '<i class="fas fa-film-alt"></i>'),
     new Link('Prime Video', 'https://www.primevideo.com/',   'a', '<i class="fab fa-amazon"></i>'),
     new Link('Reddit PHP',  'https://www.reddit.com/r/PHP/', 'r', '<i class="fab fa-reddit-alien"></i>'),

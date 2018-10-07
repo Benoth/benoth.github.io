@@ -1,7 +1,8 @@
 {
   "name": "startpage",
   "dependencies": {
-    "bootstrap": "^4.1.3"
+    "bootstrap": "^4.1.3",
+    "jquery": "^3.3.1"
   },
   "devDependencies": {
     "browser-sync": "^2.26.0",
